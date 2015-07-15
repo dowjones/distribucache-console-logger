@@ -1,0 +1,33 @@
+{
+  "name": "distribucache-console-logger",
+  "version": "1.0.0",
+  "description": "Distribucahce stdout / stderr logger",
+  "keywords": ["distribucache", "logger"],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dowjones/distribucache-console-logger.git"
+  },
+  "main": "lib/index",
+  "author": "nemtsov@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "prepublish": "babel src -d lib --optional runtime",
+    "lint": "eslint src test",
+    "test": "sh -c 'npm run lint && npm run test-cover && npm run test-cover-check'",
+    "test-cover": "istanbul cover _mocha -- -r should --recursive --compilers js:babel/register",
+    "test-cover-check": "istanbul check-coverage --statements 100 --functions 100 --branches 100 --lines 100",
+    "test-watch": "mocha -G -r should --recursive -w -R min -t 200 --compilers js:babel/register"
+  },
+  "dependencies": {
+    "babel-runtime": "^5.7.0"
+  },
+  "devDependencies": {
+    "babel": "^5.6.23",
+    "babel-eslint": "^3.1.23",
+    "eslint": "^0.24.1",
+    "istanbul": "^0.3.17",
+    "mocha": "^2.2.5",
+    "should": "^7.0.2",
+    "sinon": "^1.15.4"
+  }
+}
