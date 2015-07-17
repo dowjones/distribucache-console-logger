@@ -2,15 +2,15 @@ import colors from 'colors/safe';
 
 const IS_ERROR_RE = /^error/;
 
-export default function logEvents(cache) {
+export default function logEvents(cache, options = {}) {
   cache.onAny(function (...args) {
     const out = IS_ERROR_RE.test(this.event) ? 'stderr' : 'stdout';
     const timestamp = (new Date()).toISOString();
-    process[out].write([
-      colors.grey(timestamp),
-      this.event,
-      colors.grey('-'),
-      args
-    ].join(' ') + '\n');
+    const log = [colors.grey(timestamp)];
+
+    if (options.namespace) log.push(options.namespace);
+    log.push(colors.cyan(this.event), args);
+
+    process[out].write(log.join(' ') + '\n');
   });
 }

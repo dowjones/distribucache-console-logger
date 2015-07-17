@@ -17,11 +17,21 @@ import logEvents from 'distribucache-console-logger';
 const cacheClient = distribucache.createClient(memoryStore());
 const cache = cacheClient.create('nsp');
 
-logEvents(cache);
+logEvents(cache, {namespace: 'nsp'});
 
 cache.get('k', (err, value) => {
   //...
 });
+```
+
+## API
+
+`logEvents(cache, options)` - where cache is distribucache and options are described below
+
+Possible `options` values:
+
+```
+{String} [options.namespace]
 ```
 
 

@@ -14,6 +14,16 @@ describe('distribucache-console-logger', () => {
     errStub.restore();
   });
 
+  it('should include namespace if provided', () => {
+    const cache = {
+      onAny(cb) {
+        cb.call({event: 'e'});
+      }
+    };
+    logEvents(cache, {namespace: '__n__'});
+    outStub.firstCall.args[0].includes('__n__');
+  });
+
   it('should write non-error events to stdout', () => {
     const cache = {
       onAny(cb) {
