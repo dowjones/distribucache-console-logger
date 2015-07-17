@@ -3,7 +3,7 @@
 Log all events emitted by [Distribucache] to the `stdout` / `stderr`.
 This logger was designed to be used for debugging the cache.
 
-*Note:* requires `distribucache` version `>=6.0.0`.
+**Note:** requires [Distribucache] version `>=6.0.0`.
 
 
 ## Usage
