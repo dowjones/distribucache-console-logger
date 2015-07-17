@@ -1,4 +1,5 @@
-# Distribucache Console Logger [![Build Status](https://secure.travis-ci.org/dowjones/distribucache-console-logger.png)](http://travis-ci.org/dowjones/distribucache-console-logger) [![NPM version](https://badge.fury.io/js/distribucache-console-logger.svg)](http://badge.fury.io/js/distribucache-console-logger)
+# Distribucache Console Logger 
+[![Build Status](https://secure.travis-ci.org/dowjones/distribucache-console-logger.png)](http://travis-ci.org/dowjones/distribucache-console-logger) [![NPM version](https://badge.fury.io/js/distribucache-console-logger.svg)](http://badge.fury.io/js/distribucache-console-logger)
 
 Log all events emitted by [Distribucache] to the `stdout` / `stderr`.
 This logger was designed to be used for debugging the cache.
