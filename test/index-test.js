@@ -24,6 +24,17 @@ describe('distribucache-console-logger', () => {
     outStub.firstCall.args[0].includes('__n__');
   });
 
+  it('should not call onAny if options.events passed', () => {
+    const cache = {
+      on: stub(),
+      onAny(cb) {
+        cb.call({event: 'e'});
+      }
+    };
+    logEvents(cache, {events: ['e']});
+    cache.on.calledOnce.should.be.ok();
+  });
+
   it('should write non-error events to stdout', () => {
     const cache = {
       onAny(cb) {
